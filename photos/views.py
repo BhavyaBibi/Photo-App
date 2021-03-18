@@ -8,6 +8,8 @@ def gallery(request):
     return render(request, 'photos/gallery.html',context)
   
 def viewPhoto(request,pk):
+    categories = Category.objects.all()
+    context = {'categories': categories}
     return render(request,'photos/photo.html')
 
 def addPhoto(request):
