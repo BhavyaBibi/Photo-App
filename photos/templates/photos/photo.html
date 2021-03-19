@@ -11,27 +11,24 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
+
 <body class="m-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-center">
+            <div class="col">
+
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
-                <div style="height:90vh;">
-                    <img style="max-width:100%; max-height:100%;"
-                        src="
-                        https://www.thesprucepets.com/thmb/gY_3zGT4Nasd_NM2QYu1iNj-6s8=/1080x721/filters:no_upscale():max_bytes(150000):strip_icc()/cutest-cats-on-the-internet-4-57eeab3c5f9b586c3549f9c2.jpeg"
-                        alt="">
+
+                <div style="height: 90vh;">
+                    <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}">
+
+                    <p>{{photo.description}}</p>
                 </div>
 
-                <p>
-
-                    Lorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of
-                    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                    since the 1500s, when an unknown printer took a galley
-                </p>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

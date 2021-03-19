@@ -18,97 +18,63 @@
 </head>
 
 <body class="m-5">
+
     <div class="container">
         <div class="row">
-
             <div class="col-md-3">
+
                 <div class="card">
-                    <ul class=" list-group list-group-flush">
-                        <li class="list-group-item">All</li>
+                    <div class="card-header">
+                        Categories
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'gallery' %}">All</a>
+                        </li>
                         {% for category in categories %}
-                        <li class="list-group-item">{{category.name}}</li>
+                        <li class=" list-group-item">
+                            <a href="{% url 'gallery' %}  category={{category.name}}">
+                                {{category.name}}
+                            </a>
+                        </li>
                         {% endfor %}
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+
+
                         <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Photo</a>
+
                     </ul>
                 </div>
+
             </div>
             <div class="col-md-9">
-                <div class="row 3">
+                <div class="row">
 
-
+                    {% for photo in photos %}
                     <div class="col-md-4">
-                        <div class="card">
-                            <img class="image-thumbail"
-                                src=" https://www.thesprucepets.com/thmb/gY_3zGT4Nasd_NM2QYu1iNj-6s8=/1080x721/filters:no_upscale():max_bytes(150000):strip_icc()/cutest-cats-on-the-internet-4-57eeab3c5f9b586c3549f9c2.jpeg"
-                                class="card-img-top" alt="...">
+                        <div class="card my-2">
+                            <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
 
                             <div class="card-body">
-                                <small> Cateegory:Pets </small>
-
+                                <small>Category: {{photo.category.name}}</small>
                             </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm- m-1">View</a>
+                            <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="image-thumbail"
-                                src=" https://www.thesprucepets.com/thmb/gY_3zGT4Nasd_NM2QYu1iNj-6s8=/1080x721/filters:no_upscale():max_bytes(150000):strip_icc()/cutest-cats-on-the-internet-4-57eeab3c5f9b586c3549f9c2.jpeg"
-                                class="card-img-top" alt="...">
-
-                            <div class="card-body">
-                                <small> Cateegory:Pets </small>
-
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm- m-1">View</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="image-thumbail"
-                                src=" https://www.thesprucepets.com/thmb/gY_3zGT4Nasd_NM2QYu1iNj-6s8=/1080x721/filters:no_upscale():max_bytes(150000):strip_icc()/cutest-cats-on-the-internet-4-57eeab3c5f9b586c3549f9c2.jpeg"
-                                class="card-img-top" alt="...">
-
-                            <div class="card-body">
-                                <small> Cateegory:Pets </small>
-
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class=" btn btn-outline-dark btn-sm- m-1">View</a>
-                        </div>
-                    </div>
+                    {% empty %}
+                    <h3>No photos...</h3>
+                    {% endfor %}
 
 
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="image-thumbail"
-                                src=" https://www.thesprucepets.com/thmb/gY_3zGT4Nasd_NM2QYu1iNj-6s8=/1080x721/filters:no_upscale():max_bytes(150000):strip_icc()/cutest-cats-on-the-internet-4-57eeab3c5f9b586c3549f9c2.jpeg"
-                                class="card-img-top" alt="...">
 
-                            <div class="card-body">
-                                <small> Cateegory:Pets </small>
 
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm- m-1">View</a>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 ">
-                        <div class="card">
-                            <img class="image-thumbail"
-                                src=" https://www.thesprucepets.com/thmb/gY_3zGT4Nasd_NM2QYu1iNj-6s8=/1080x721/filters:no_upscale():max_bytes(150000):strip_icc()/cutest-cats-on-the-internet-4-57eeab3c5f9b586c3549f9c2.jpeg"
-                                class="card-img-top" alt="...">
 
-                            <div class="card-body">
-                                <small> Cateegory:Pets </small>
 
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm- m-1">View</a>
-                        </div>
-                    </div>
 
                 </div>
             </div>
+        </div>
+    </div>
 
 </body>
 
