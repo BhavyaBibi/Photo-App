@@ -31,18 +31,23 @@
                             <label>Select a category</label>
                             <select name="category" class="form-control">
                                 <option value='none'>Select a category...</option>
+
+                                {% for category in categories %}
+                                <option value='{{category.id}}'>{{category.name}}</option>
+                                {% endfor %}
+
+                            </select>
                         </div>
 
                         <div class="form-group m-3">
-                            <label>Upload Image</label>
-                            <input type=" file" class="form-control">
+                            <label>Upload image</label>
+                            <input name="images" type="file" multiple class="form-control-file">
                         </div>
+
                     </form>
                 </div>
-                Form
             </div>
         </div>
-    </div>
 </body>
 
 </html>
