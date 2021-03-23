@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
+
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <style>
         .image-thumbail {
             height: 200px;
             object-fit: cover;
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
@@ -33,7 +40,7 @@
                         </li>
                         {% for category in categories %}
                         <li class=" list-group-item">
-                            <a href="{% url 'gallery' %}  category={{category.name}}">
+                            <a href="{% url 'gallery' %}?category={{category.name}}">
                                 {{category.name}}
                             </a>
                         </li>
@@ -63,19 +70,3 @@
                     {% empty %}
                     <h3>No photos...</h3>
                     {% endfor %}
-
-
-
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-
-</html>
